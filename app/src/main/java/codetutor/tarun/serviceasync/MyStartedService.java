@@ -27,6 +27,12 @@ private static final String TAG = MyStartedService.class.getSimpleName();
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         // PERFORM ALL TASKS HERE
+        int sleepTime=intent.getIntExtra("sleepTime",1);
+        try {
+            Thread.sleep(sleepTime * 1000);
+        } catch (InterruptedException e) {
+
+        }
 
         Log.d(TAG, "onStartCommand: ThreadName"+Thread.currentThread().getName());
         return super.onStartCommand(intent, flags, startId);
